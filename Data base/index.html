@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Firebase Notes</title>
+  </head>
+  <body>
+    <h1>My Notes</h1>
+    <input type="text" id="noteInput" placeholder="Write a note" />
+    <button onclick="addNote()">Add Note</button>
+
+    <ul id="notesList"></ul>
+
+    <script type="module">
+      // Import the Firebase modules
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+      import {
+        getDatabase,
+        ref,
+        push,
+        onChildAdded,
+      } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
+
+      // Your Firebase config here
+      const firebaseConfig = {
+        apiKey: "AIzaSyAqsciuKGOcA6YgNqldYM5l5TQckfVzpqo",
+        authDomain: "game-26cc5.firebaseapp.com",
+        projectId: "game-26cc5",
+        storageBucket: "game-26cc5.firebasestorage.app",
+        messagingSenderId: "11984222266",
+        appId: "1:11984222266:web:a2de06db3f4da5442c9d03",
+        measurementId: "G-0XFF25675B",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase(app);
+
+      // Function to add a note
+      window.addNote = function () {
+        const input = document.getElementById("noteInput");
+        const note = input.value;
+        const notesRef = ref(db, "notes/");
+        push(notesRef, { text: note }); // Push creates a unique ID
+        input.value = "";
+      };
+
+      // Listen for new notes
+      const notesRef = ref(db, "notes/");
+      onChildAdded(notesRef, (data) => {
+        const note = data.val();
+        const li = document.createElement("li");
+        li.textContent = note.text;
+        document.getElementById("notesList").appendChild(li);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="login-container">
+      <h1>Login</h1>
+      <button id="google-login">Login with Google</button>
+    </div>
+    <script type="module">
+      import { auth } from "./firebase-config.js";
+      import {
+        GoogleAuthProvider,
+        signInWithPopup,
+      } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
+
+      document
+        .getElementById("google-login")
+        .addEventListener("click", async () => {
+          try {
+            const provider = new GoogleAuthProvider();
+            await signInWithPopup(auth, provider);
+            window.location.href = "index.html";
+          } catch (error) {
+            console.error(error);
+            alert(error.message);
+          }
+        });
+    </script>
+  </body>
+</html>
