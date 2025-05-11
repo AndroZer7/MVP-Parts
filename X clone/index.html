@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>X Clone</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <nav class="sidebar">
+        <div class="logo">
+          <i class="fab fa-twitter"></i>
+        </div>
+        <ul>
+          <li class="active">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-search"></i> Search</a>
+          </li>
+          <li>
+            <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+          </li>
+          <li id="logout">
+            <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+          </li>
+        </ul>
+      </nav>
+
+      <main class="main-content">
+        <div class="compose-post">
+          <img
+            id="user-avatar"
+            src="assets/default-avatar.svg"
+            alt="User Avatar"
+          />
+          <div class="post-input-container">
+            <textarea
+              id="post-content"
+              placeholder="What's happening?"
+            ></textarea>
+            <div class="post-actions">
+              <button id="post-button">Post</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="search-container">
+          <input type="text" id="user-search" placeholder="Search users..." />
+          <div id="search-results" class="search-results"></div>
+        </div>
+
+        <div id="feed" class="feed">
+          <!-- Posts will be dynamically added here -->
+        </div>
+      </main>
+
+      <aside class="trending">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Search X" />
+        </div>
+        <div class="trending-section">
+          <h2>What's happening</h2>
+          <!-- Trending content will be added here -->
+        </div>
+      </aside>
+    </div>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

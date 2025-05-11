@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile - X Clone</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <nav class="sidebar">
+        <div class="logo">
+          <i class="fab fa-twitter"></i>
+        </div>
+        <ul>
+          <li>
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-search"></i> Search</a>
+          </li>
+          <li class="active">
+            <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+          </li>
+          <li id="logout">
+            <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+          </li>
+        </ul>
+      </nav>
+
+      <main class="main-content">
+        <div class="profile-header">
+          <div class="profile-banner">
+            <img
+              id="banner-img"
+              src="assets/default-banner.png"
+              alt="Profile Banner"
+            />
+            <label for="banner-upload" class="upload-btn">
+              <i class="fas fa-camera"></i>
+            </label>
+            <input type="file" id="banner-upload" hidden accept="image/*" />
+          </div>
+          <div class="profile-info">
+            <div class="profile-picture">
+              <img
+                id="profile-img"
+                src="assets/default-avatar.png"
+                alt="Profile Picture"
+              />
+              <label for="avatar-upload" class="upload-btn">
+                <i class="fas fa-camera"></i>
+              </label>
+              <input type="file" id="avatar-upload" hidden accept="image/*" />
+            </div>
+            <div class="profile-details">
+              <h1 id="display-name">Loading...</h1>
+              <p id="username">@loading...</p>
+              <p id="bio-text" class="bio">Click to add bio</p>
+              <div class="social-links" id="social-links">
+                <!-- Social media links will be added here -->
+              </div>
+              <button id="edit-profile" class="edit-profile-btn">
+                Edit Profile
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div id="user-posts" class="feed">
+          <!-- User's posts will be dynamically added here -->
+        </div>
+      </main>
+
+      <aside class="trending">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Search X" />
+        </div>
+        <div class="trending-section">
+          <h2>What's happening</h2>
+          <!-- Trending content will be added here -->
+        </div>
+      </aside>
+    </div>
+
+    <!-- Edit Profile Modal -->
+    <div id="edit-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Edit Profile</h2>
+        <form id="edit-profile-form">
+          <div class="form-group">
+            <label for="edit-display-name">Display Name</label>
+            <input type="text" id="edit-display-name" required />
+          </div>
+          <div class="form-group">
+            <label for="edit-bio">Bio</label>
+            <textarea id="edit-bio"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Social Media Links</label>
+            <input type="url" id="edit-website" placeholder="Website" />
+            <input type="url" id="edit-twitter" placeholder="Twitter" />
+            <input type="url" id="edit-instagram" placeholder="Instagram" />
+            <input type="url" id="edit-linkedin" placeholder="LinkedIn" />
+          </div>
+          <button type="submit" class="save-profile-btn">Save Changes</button>
+        </form>
+      </div>
+    </div>
+
+    <script type="module" src="profile.js"></script>
+  </body>
+</html>
